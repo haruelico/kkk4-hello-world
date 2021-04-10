@@ -1,65 +1,45 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [state, setState] = useState(1)
+  const range = (start, stop) => Array.from({ length: (stop - start) + 1}, (_, i) => start + i);
+  const elems = range(0, state).map(x => {
+    return (<g id={x} data-name={x} key={x} ></g>)
+  })
+
+  useEffect(() => {
+    setState(s => s * s * 2)
+    console.log(state)
+  }, [state])
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>KusoKoudoKaigi 4 - Hello World!</title>
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.09 9.84" width="100px">
+          {elems}
+          <g id="layer" data-name="layer">
+            <g id="layer-1" data-name="layer-1" >
+              <path d="M0,9.14V0H1.08V3.66H3.75V0H4.83V9.14H3.75V4.55H1.08V9.14Z"/>
+              <path d="M10.12,8.53a2.06,2.06,0,0,1-1.54.61,2.19,2.19,0,0,1-1.64-.61A3.46,3.46,0,0,1,6.05,6a3.47,3.47,0,0,1,.79-2.53,2.31,2.31,0,0,1,1.69-.7A2.18,2.18,0,0,1,10,3.28,3.24,3.24,0,0,1,10.78,6H7.08c0,1,.19,1.69.56,2a1.27,1.27,0,0,0,.94.33,1.14,1.14,0,0,0,.84-.33,1.49,1.49,0,0,0,.33-1h1.08A2.7,2.7,0,0,1,10.12,8.53ZM9.7,5.2a1.65,1.65,0,0,0-.42-1.36,1,1,0,0,0-.84-.32A1.43,1.43,0,0,0,7.55,4,2,2,0,0,0,7.08,5.2Z"/>
+              <path d="M14.91,9.14H14V0h.94Z"/>
+              <path d="M20.91,9.14H20V0h.94Z"/>
+              <path d="M26.44,2.72a2.38,2.38,0,0,1,1.73.75A3.42,3.42,0,0,1,28.92,6a3.35,3.35,0,0,1-.75,2.44,2.38,2.38,0,0,1-1.73.75,2.43,2.43,0,0,1-1.78-.75A3.35,3.35,0,0,1,23.91,6a3.42,3.42,0,0,1,.75-2.48A2.43,2.43,0,0,1,26.44,2.72ZM25.45,4a2.84,2.84,0,0,0-.51,2,2.77,2.77,0,0,0,.51,1.93,1.35,1.35,0,0,0,1,.42,1.33,1.33,0,0,0,.94-.42A2.77,2.77,0,0,0,27.89,6a2.84,2.84,0,0,0-.51-2,1.33,1.33,0,0,0-.94-.42A1.35,1.35,0,0,0,25.45,4Z"/>
+              <path d="M35.53,0h.94l.61,5.86h.09L37.88,0h1l.7,5.86h.09L40.31,0h.94l-1,9.14h-.94L38.44,2.3h-.1L37.5,9.14h-.94Z"/>
+              <path d="M44.44,2.72a2.38,2.38,0,0,1,1.73.75A3.42,3.42,0,0,1,46.92,6a3.35,3.35,0,0,1-.75,2.44,2.38,2.38,0,0,1-1.73.75,2.43,2.43,0,0,1-1.78-.75A3.35,3.35,0,0,1,41.91,6a3.42,3.42,0,0,1,.75-2.48A2.43,2.43,0,0,1,44.44,2.72ZM43.45,4a2.84,2.84,0,0,0-.51,2,2.77,2.77,0,0,0,.51,1.93,1.35,1.35,0,0,0,1,.42,1.33,1.33,0,0,0,.94-.42A2.77,2.77,0,0,0,45.89,6a2.84,2.84,0,0,0-.51-2,1.33,1.33,0,0,0-.94-.42A1.35,1.35,0,0,0,43.45,4Z"/>
+              <path d="M52.17,2.72V3.84c-1.15-.21-2,.39-2.53,1.83V9.14H48.7V2.72h.94V4.08A2.47,2.47,0,0,1,52.17,2.72Z"/>
+              <path d="M56.91,9.14H56V0h.94Z"/>
+              <path d="M62.06,9.14a1.93,1.93,0,0,1-1.36-.66,3.69,3.69,0,0,1-.79-2.67,3.25,3.25,0,0,1,.89-2.43,1.94,1.94,0,0,1,3,0V0h.94V9.14h-.94V8.2A2.14,2.14,0,0,1,62.06,9.14Zm-.51-5.2a2.67,2.67,0,0,0-.61,2A3,3,0,0,0,61.45,8a1.15,1.15,0,0,0,.85.33,1.21,1.21,0,0,0,.84-.42,2.86,2.86,0,0,0,.61-2.07,2.62,2.62,0,0,0-.61-1.92,1.08,1.08,0,0,0-.8-.33A1.11,1.11,0,0,0,61.55,3.94Z"/>
+              <path d="M67.78.09h1.31l-.28,7h-.75Zm.14,9.75v-1h1v1Z"/>
+            </g>
+          </g>
+        </svg>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }
